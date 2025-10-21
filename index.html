@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI UGC Magic Factory - Revolutionizing Ad Creation</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(255,255,255,0.1);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .animate-fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        .animate-slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .animate-pop-up {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.6s ease;
+        }
+        .animate-pop-up.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-white">AI UGC Magic 🎬</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="#how-it-works" class="text-gray-300 hover:text-white transition">How It Works</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white transition">Portfolio</a>
+                    <a href="#pricing" class="text-gray-300 hover:text-white transition">Pricing</a>
+                    <a href="#contact" class="bg-white text-black px-4 py-2 rounded-full font-medium hover:bg-gray-200 transition">Get Started</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-300">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 glow-text animate-fade-up" style="animation-delay: 0.2s">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Why</span> aren't you selling 5x faster with AI UGC Ads?
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 animate-slide-right" style="animation-delay: 0.4s">
+                        Tired of wasting money on influencers? Let's create studio-quality, professional ads at a low cost — with AI.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition flex items-center">
+                            Get Your Ads Now <i data-feather="arrow-right" class="ml-2"></i>
+                        </a>
+                        <a href="#portfolio" class="border border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition flex items-center">
+                            See Examples <i data-feather="eye" class="ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center space-x-4">
+                        <div class="flex -space-x-2">
+                            <img src="http://static.photos/people/200x200/1" class="w-10 h-10 rounded-full border-2 border-black">
+                            <img src="http://static.photos/people/200x200/2" class="w-10 h-10 rounded-full border-2 border-black">
+                            <img src="http://static.photos/people/200x200/3" class="w-10 h-10 rounded-full border-2 border-black">
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            Trusted by 100+ brands worldwide
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-white to-transparent opacity-10 rounded-2xl"></div>
+                    <div class="relative bg-black rounded-2xl overflow-hidden border border-gray-800">
+                        <video id="heroVideo" autoplay loop muted class="w-full cursor-pointer">
+                            <source src="Fiver ad for ugc(final).mp4" type="video/mp4">
+                        </video>
+                        <div id="playIcon" class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 transition-opacity">
+                            <div class="bg-black bg-opacity-50 rounded-full p-4">
+                                <i data-feather="play" class="text-white w-12 h-12"></i>
+                            </div>
+                        </div>
+                        <button id="soundToggle" class="absolute top-4 right-4 bg-black bg-opacity-50 rounded-full p-2 text-white hover:bg-opacity-70 transition">
+                            <i data-feather="volume-x" class="w-5 h-5"></i>
+                        </button>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <div class="text-white font-medium">Example of our AI UGC ad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-12 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-3xl md:text-4xl font-bold text-white mb-8">Still paying models when AI can do it better?</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">AI UGC Ad Services</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Real human emotion. Perfect lip-sync. Zero shooting costs. Our AI UGC ads beat real models — and your budget loves it.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="user" class="text-white w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">AI Avatars</h3>
+                    <p class="text-gray-400 mb-4">Pick your AI avatar from our ultra-realistic model library — or design your own character that perfectly fits your brand.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Any Character, Any Ethnicity</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Any age range</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Custom styling</li>
+                    </ul>
+                </div>
+                <div class="service-card bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="film" class="text-white w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Lip Sync Videos</h3>
+                    <p class="text-gray-400 mb-4">Perfect lip-syn with real human emotion</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> 30+ languages</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Scriptwriting/Any script length</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Real human emotion</li>
+                    </ul>
+                </div>
+                <div class="service-card bg-gray-900 p-8 rounded-xl">
+                    <div class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                        <i data-feather="shopping-bag" class="text-white w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Product Showcases</h3>
+                    <p class="text-gray-400 mb-4">Create AI avatars for any purpose — tech, lifestyle, podcast, motivational, business, or brand promotion.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> B-Roll</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Multiple angles</li>
+                        <li class="flex items-center"><i data-feather="check" class="w-4 h-4 mr-2 text-green-400"></i> Realistic interactions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">How It Works</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Creating AI UGC ads has never been easier</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-white font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Share Your Brief</h3>
+                    <p class="text-gray-400">Tell us about your product, target audience, and campaign goals</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-white font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Select Your AI Model</h3>
+                    <p class="text-gray-400">Choose from our diverse avatar library or request a custom model</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-white font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Review Concepts</h3>
+                    <p class="text-gray-400">We'll send you initial concepts and script options within 24 hours</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <span class="text-white font-bold text-xl">4</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Receive Final Ads</h3>
+                    <p class="text-gray-400">Get your polished, high-converting UGC ads delivered in 3-5 days</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our AI UGC Portfolio</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">See how our AI-generated UGC compares to traditional ads</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openVideoModal('ugc protofolio (6).mp4')">
+                    <video class="w-full h-full object-cover" muted>
+                        <source src="ugc protofolio (6).mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Business Brand Ad</h3>
+                            <p class="text-gray-300">CTR: 4.2% (2.3x industry average)</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-black bg-opacity-50 rounded-full p-4">
+                            <i data-feather="play" class="text-white w-12 h-12"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openVideoModal('ffs.mp4')">
+                    <video class="w-full h-full object-cover" muted>
+                        <source src="ffs.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Beauty Channel Ad</h3>
+                            <p class="text-gray-300">Conversion Rate: 7.8% (3.1x industry average)</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-black bg-opacity-50 rounded-full p-4">
+                            <i data-feather="play" class="text-white w-12 h-12"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer" onclick="openVideoModal('Untitled video - Made with Clipchamp (3).mp4')">
+                    <video class="w-full h-full object-cover" muted>
+                        <source src="Untitled video - Made with Clipchamp (3).mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Beauty Channel Ad</h3>
+                            <p class="text-gray-300">ROAS: $10 for every $1 spent</p>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-black bg-opacity-50 rounded-full p-4">
+                            <i data-feather="play" class="text-white w-12 h-12"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-flex items-center text-white border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+                    See More Examples <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 animate-pop-up" style="animation-delay: 0.1s">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto animate-pop-up" style="animation-delay: 0.2s">80% cheaper than traditional UGC production with better results</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-800 rounded-xl p-8 animate-pop-up" style="animation-delay: 0.3s">
+                    <h3 class="text-2xl font-bold text-white mb-4">Starter</h3>
+                    <div class="text-4xl font-bold text-white mb-6">$10<span class="text-lg text-gray-400">/ad</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Up to 30 seconds Running Time</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> 1 video</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> B-Roll included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-gray-500 flex-shrink-0"></i> Graphics included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-gray-500 flex-shrink-0"></i> Include additional hooks</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Script/prompt included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Screen recording</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Subtitles/captions included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> 3 months usage rights</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 rounded-lg transition">Get Started</a>
+                </div>
+                <div class="bg-black border-2 border-white rounded-xl p-8 relative overflow-hidden animate-pop-up" style="animation-delay: 0.4s">
+                    <div class="absolute top-0 right-0 bg-white text-black text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Professional</h3>
+                    <div class="text-4xl font-bold text-white mb-6">$19</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Up to 60 seconds Running Time</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> 3 videos</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> B-Roll included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Graphics included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Include additional hooks</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Script/prompt included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Screen recording</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Subtitles/captions included</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> 1 year usage rights</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-white hover:bg-gray-200 text-black text-center py-3 rounded-lg transition font-medium">Get Started</a>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-8 animate-pop-up" style="animation-delay: 0.5s">
+                    <h3 class="text-2xl font-bold text-white mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold text-white mb-6">Custom</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Unlimited video length</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Unlimited videos</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Premium B-Roll library</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Custom graphics & animations</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Multiple hook variations</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Professional scriptwriting</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Advanced screen recording</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Multi-language subtitles</li>
+                        <li class="flex items-start"><i data-feather="check" class="w-5 h-5 mr-2 mt-0.5 text-green-400 flex-shrink-0"></i> Lifetime usage rights</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 rounded-lg transition">Contact Us</a>
+                </div>
+            </div>
+            <div class="mt-12 bg-gray-800 rounded-xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-xl font-bold text-white mb-4">Why Choose AI UGC Over Traditional?</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex">
+                        <div class="bg-gray-700 rounded-lg p-3 mr-4 flex-shrink-0">
+                            <i data-feather="dollar-sign" class="text-green-400 w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">80% Cost Reduction</h4>
+                            <p class="text-gray-400">No model fees, studio rentals, or production crews</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="bg-gray-700 rounded-lg p-3 mr-4 flex-shrink-0">
+                            <i data-feather="clock" class="text-green-400 w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">5x Faster</h4>
+                            <p class="text-gray-400">Get ads in days instead of weeks</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="bg-gray-700 rounded-lg p-3 mr-4 flex-shrink-0">
+                            <i data-feather="trending-up" class="text-green-400 w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Higher Performance</h4>
+                            <p class="text-gray-400">Our AI ads convert 2-3x better on average</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="bg-gray-700 rounded-lg p-3 mr-4 flex-shrink-0">
+                            <i data-feather="repeat" class="text-green-400 w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-1">Easy Iterations</h4>
+                            <p class="text-gray-400">Change scripts, models, or products instantly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Brands that switched to AI UGC ads are seeing incredible results</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-xl animate-pop-up" style="animation-delay: 0.1s">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/4" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Sarah Johnson</h4>
+                            <p class="text-gray-400 text-sm">Marketing Director, BeautyBrand</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-300 mb-4">
+                        "Our conversion rates tripled after switching to AI UGC ads. The quality is indistinguishable from real models but at a fraction of the cost."
+                    </div>
+                    <div class="flex text-yellow-400">
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-xl animate-pop-up" style="animation-delay: 0.2s">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/5" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">Michael Chen</h4>
+                            <p class="text-gray-400 text-sm">CEO, TechGadgets</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-300 mb-4">
+                        "We scaled our ad production 10x while reducing costs by 85%. The ability to test different avatars and scripts quickly is game-changing."
+                    </div>
+                    <div class="flex text-yellow-400">
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                </div>
+                <div class="bg-gray-900 p-8 rounded-xl animate-pop-up" style="animation-delay: 0.3s">
+                    <div class="flex items-center mb-4">
+                        <img src="http://static.photos/people/200x200/6" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-white">David Rodriguez</h4>
+                            <p class="text-gray-400 text-sm">E-commerce Manager, FitLife</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-300 mb-4">
+                        "Our ROAS increased from 3.2 to 9.6 after using AI UGC ads. The lip sync is so natural, customers can't tell it's not a real person."
+                    </div>
+                    <div class="flex text-yellow-400">
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                        <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 hero-gradient">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Ads?</h2>
+            <p class="text-xl text-gray-300 mb-8">Join 100+ brands using AI UGC ads to boost conversions and slash ad production costs</p>
+            <a href="#contact" class="inline-flex items-center bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition text-lg">
+                Get Started Now <i data-feather="arrow-right" class="ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Let's Create Your AI UGC Ads</h2>
+                    <p class="text-xl text-gray-300 mb-8">Fill out the form and we'll get back to you within 24 hours with a free consultation and sample video.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-gray-800 rounded-full p-3 mr-4 flex-shrink-0">
+                                <i data-feather="mail" class="text-white w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Email Us</h4>
+                                <a href="mailto:AIugcAdsCreater@gmail.com" class="text-gray-400 hover:text-white transition">AIugcAdsCreater@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gray-800 rounded-full p-3 mr-4 flex-shrink-0">
+                                <i data-feather="phone" class="text-white w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Call Us</h4>
+                                <a href="https://wa.me/923124643103" target="_blank" class="text-gray-400 hover:text-white transition">+92 3124643103</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-8">
+                    <form id="contact-form">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label for="name" class="block text-white font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="from_name" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-white font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="from_email" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-white font-medium mb-2">Company (Optional)</label>
+                                <input type="text" id="company" name="company" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-white font-medium mb-2">Tell Us About Your Project</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" id="submit-btn" class="w-full bg-white text-black font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-400">Everything you need to know about AI UGC ads</p>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-white">Can customers tell it's AI?</h3>
+                        <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-300 hidden">
+                        In our tests, 98% of viewers couldn't distinguish our AI-generated UGC from real human-created content. The lip sync, facial expressions, and movements are all hyper-realistic.
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-white">How long does it take to create an ad?</h3>
+                        <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-300 hidden">
+                        For standard packages, we deliver the first concepts within 24 hours and final ads within 1-2 business days. Rush delivery options are available for an additional fee.
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-white">Can I use my own script?</h3>
+                        <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-300 hidden">
+                        Absolutely! You can provide your own script, or our team of conversion copywriters can create one optimized for your product and target audience.
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-white">What if I need changes after receiving the ad?</h3>
+                        <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-300 hidden">
+                        Each package includes revision rounds (1-3 depending on package). Additional revisions are available at $5 per round. Most clients are happy with the first version.
+                    </div>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6">
+                    <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-bold text-white">Do you offer bulk discounts?</h3>
+                        <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-300 hidden">
+                        Yes! We offer significant discounts for orders of 5+ ads. Contact us for custom pricing on bulk orders and ongoing content creation partnerships.
+                    </div>
+                </div>
+                <div id="moreFAQs" class="space-y-6 hidden">
+                    <div class="bg-gray-900 rounded-xl p-6">
+                        <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-bold text-white">🎧 Do you include sound effects and background music?</h3>
+                            <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="mt-4 text-gray-300 hidden">
+                            Yes, every ad includes professional sound effects, voiceovers, and background music to create a cinematic, emotional impact.
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 rounded-xl p-6">
+                        <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-bold text-white">🌍 Can you make ads in different languages?</h3>
+                            <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="mt-4 text-gray-300 hidden">
+                            Yes! We support multiple languages including English, Urdu, Arabic, Hindi, Spanish, and more. Perfect for brands targeting international audiences.
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 rounded-xl p-6">
+                        <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-bold text-white">📱 Which platforms are the ads optimized for?</h3>
+                            <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="mt-4 text-gray-300 hidden">
+                            We deliver ads ready for TikTok, Instagram Reels, YouTube Shorts, Facebook, and website use — in the ideal aspect ratios and resolutions.
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 rounded-xl p-6">
+                        <button class="flex items-center justify-between w-full text-left" onclick="toggleFAQ(this)">
+                            <h3 class="text-lg font-bold text-white">🤖 What makes your AI ads better than traditional UGC ads?</h3>
+                            <i data-feather="chevron-down" class="text-gray-400 w-5 h-5 transition-transform"></i>
+                        </button>
+                        <div class="mt-4 text-gray-300 hidden">
+                            Our AI UGC ads are:<br><br>
+                            • Faster to produce (hours, not days)<br>
+                            • Far more affordable than hiring models<br>
+                            • Fully customizable with consistent branding<br>
+                            • Emotionally engaging — powered by realistic AI avatars with real human emotion
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button id="showMoreFAQ" onclick="toggleMoreFAQs()" class="text-white border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+                        Show More Questions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">AI UGC Magic</h3>
+                    <p class="text-gray-400 mb-4">Revolutionizing ad creation with AI-powered UGC that converts better and costs less.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-gray-400 hover:text-white transition">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Avatars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Lip Sync Videos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Product Showcases</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Custom AI Models</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Refund Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 AI UGC Magic Factory. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+        <div class="relative w-full h-full max-w-6xl max-h-screen p-4">
+            <button onclick="closeVideoModal()" class="absolute top-4 right-4 text-white text-4xl z-10 hover:text-gray-300">
+                &times;
+            </button>
+            <video id="modalVideo" controls class="w-full h-full object-contain">
+                <source id="modalVideoSource" src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+        VANTA.GLOBE({
+            el: "#hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3f3f3f,
+            backgroundColor: 0x0,
+            size: 0.8
+        });
+        
+        const video = document.getElementById('heroVideo');
+        const playIcon = document.getElementById('playIcon');
+        
+        video.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                playIcon.style.opacity = '0';
+            } else {
+                video.pause();
+                playIcon.style.opacity = '1';
+            }
+        });
+
+        // Sound toggle functionality
+        const soundToggle = document.getElementById('soundToggle');
+        soundToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (video.muted) {
+                video.muted = false;
+                soundToggle.innerHTML = '<i data-feather="volume-2" class="w-5 h-5"></i>';
+            } else {
+                video.muted = true;
+                soundToggle.innerHTML = '<i data-feather="volume-x" class="w-5 h-5"></i>';
+            }
+            feather.replace();
+        });
+
+        // Initialize EmailJS
+        emailjs.init('ekfh7iv7ldRBLMBqy');
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send('service_ddnyt4u', 'template_uq0n0xf', templateParams)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    document.getElementById('contact-form').reset();
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    console.log('Error:', error);
+                    alert('Failed to send message. Please try again.');
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                });
+        });
+
+        // Video Modal Functions
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalVideoSource = document.getElementById('modalVideoSource');
+            
+            modalVideoSource.src = videoSrc;
+            modalVideo.load();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            modalVideo.addEventListener('loadeddata', function() {
+                modalVideo.play();
+            }, { once: true });
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modalVideo.pause();
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        // FAQ Toggle Function
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Show More FAQs Function
+        function toggleMoreFAQs() {
+            const moreFAQs = document.getElementById('moreFAQs');
+            const button = document.getElementById('showMoreFAQ');
+            
+            if (moreFAQs.classList.contains('hidden')) {
+                moreFAQs.classList.remove('hidden');
+                button.textContent = 'Show Less Questions';
+            } else {
+                moreFAQs.classList.add('hidden');
+                button.textContent = 'Show More Questions';
+            }
+        }
+
+        // Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe How It Works section items
+        document.addEventListener('DOMContentLoaded', function() {
+            const howItWorksItems = document.querySelectorAll('#how-it-works .text-center');
+            howItWorksItems.forEach((item, index) => {
+                item.classList.add('animate-fade-up');
+                item.style.animationDelay = `${(index + 1) * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // Observe Portfolio videos
+            const portfolioItems = document.querySelectorAll('#portfolio .relative.group');
+            portfolioItems.forEach((item, index) => {
+                item.classList.add('animate-fade-up');
+                item.style.animationDelay = `${(index + 1) * 0.15}s`;
+                observer.observe(item);
+            });
+
+            // Observe Hero section text
+            const heroElements = document.querySelectorAll('#hero h1, #hero p');
+            heroElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Observe Pricing section elements
+            const pricingElements = document.querySelectorAll('#pricing .animate-pop-up');
+            pricingElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Observe Testimonial cards
+            const testimonialCards = document.querySelectorAll('.bg-gray-900.animate-pop-up');
+            testimonialCards.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
